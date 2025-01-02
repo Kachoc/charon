@@ -126,6 +126,12 @@ where
         self.real_len += other.real_len;
     }
 
+    /// Insert a value at that index, shifting all the values with equal or larger indices.
+    pub fn insert(&mut self, id: I, x: T) {
+        self.real_len += 1;
+        self.vector.insert(id, Some(x))
+    }
+
     /// Get a mutable reference into the ith element. If the vector is too short, extend it until
     /// it has enough elements. If the element doesn't exist, use the provided function to
     /// initialize it.

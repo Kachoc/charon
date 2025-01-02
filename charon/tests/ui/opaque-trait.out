@@ -35,8 +35,8 @@ trait test_crate::Trait<Self>
     const CONST1 : usize
     const CONST2 : usize
     const CONST3 : usize
-    fn method1 = test_crate::Trait::method1<Self>
-    fn method2 = test_crate::Trait::method2<Self>
+    fn method1 = test_crate::Trait::method1<Self>[Self]
+    fn method2 = test_crate::Trait::method2<Self>[Self]
 }
 
 fn test_crate::{impl test_crate::Trait for ()}#1::CONST1() -> usize
@@ -144,6 +144,8 @@ impl test_crate::{impl test_crate::Trait for u8} : test_crate::Trait<u8>
 trait core::marker::Sized<Self>
 
 fn test_crate::Trait::method1<Self>()
+where
+    [@TraitClause0]: test_crate::Trait<Self>,
 {
     let @0: (); // return
     let @1: (); // anonymous local
@@ -175,6 +177,8 @@ where
 }
 
 fn test_crate::Trait::method2<Self>()
+where
+    [@TraitClause0]: test_crate::Trait<Self>,
 {
     let @0: (); // return
     let @1: (); // anonymous local
