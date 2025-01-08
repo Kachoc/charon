@@ -9,7 +9,7 @@ trait test_crate::HasType<Self, Self_Type>
 
 trait test_crate::HasMethod<Self>
 {
-    fn method<Clause0_Type, [@TraitClause0]: test_crate::HasType<Self, Clause0_Type>> = test_crate::HasMethod::method<Self, Clause0_Type>[Self, @TraitClause0_0]
+    fn method<Clause0_Type, [@TraitClause0]: test_crate::HasType<Self, Clause0_Type>> = test_crate::HasMethod::method<Self, Clause0_Type>[@TraitClause0_0]
 }
 
 enum core::option::Option<T>
@@ -41,10 +41,9 @@ where
     fn method<Clause0_Type, [@TraitClause0]: test_crate::HasType<core::option::Option<T>[@TraitClause0], Clause0_Type>> = test_crate::{impl test_crate::HasMethod for core::option::Option<T>[@TraitClause0]}::method<T, Clause0_Type>[@TraitClause0, @TraitClause0_0]
 }
 
-fn test_crate::HasMethod::method<Self, Clause1_Type>()
+fn test_crate::HasMethod::method<Self, Clause0_Type>()
 where
-    [@TraitClause0]: test_crate::HasMethod<Self>,
-    [@TraitClause1]: test_crate::HasType<Self, Clause1_Type>,
+    [@TraitClause0]: test_crate::HasType<Self, Clause0_Type>,
 {
     let @0: (); // return
     let @1: (); // anonymous local
