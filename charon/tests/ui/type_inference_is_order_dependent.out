@@ -15,13 +15,13 @@ trait test_crate::Right<Self, T>
 trait test_crate::Join<Self, U>
 {
     parent_clause0 : [@TraitClause0]: core::marker::Sized<U>
-    fn test = test_crate::Join::test<Self, U>
+    fn test = test_crate::Join::test<Self, U>[Self]
 }
 
 trait core::default::Default<Self>
 {
     parent_clause0 : [@TraitClause0]: core::marker::Sized<Self>
-    fn default = core::default::Default::default<Self>
+    fn default = core::default::Default::default<Self>[Self]
 }
 
 opaque type core::fmt::Formatter<'a>
@@ -41,7 +41,7 @@ struct core::fmt::Error = {}
 
 trait core::fmt::Debug<Self>
 {
-    fn fmt<'_0, '_1, '_2> = core::fmt::Debug::fmt<'_0_0, '_0_1, '_0_2, Self>
+    fn fmt<'_0, '_1, '_2> = core::fmt::Debug::fmt<'_0_0, '_0_1, '_0_2, Self>[Self]
 }
 
 opaque type core::fmt::Arguments<'a>
@@ -51,6 +51,8 @@ opaque type core::fmt::Arguments<'a>
 opaque type core::fmt::rt::Argument<'a>
 
 fn core::default::Default::default<Self>() -> Self
+where
+    [@TraitClause0]: core::default::Default<Self>,
 
 fn core::fmt::rt::{core::fmt::rt::Argument<'_0>}#1::new_debug<'_0, '_1, T>(@1: &'_1 (T)) -> core::fmt::rt::Argument<'_1>
 where
@@ -181,8 +183,12 @@ where
 }
 
 fn test_crate::Join::test<Self, U>()
+where
+    [@TraitClause0]: test_crate::Join<Self, U>,
 
 fn core::fmt::Debug::fmt<'_0, '_1, '_2, Self>(@1: &'_0 (Self), @2: &'_1 mut (core::fmt::Formatter<'_2>)) -> core::result::Result<(), core::fmt::Error>[core::marker::Sized<()>, core::marker::Sized<core::fmt::Error>]
+where
+    [@TraitClause0]: core::fmt::Debug<Self>,
 
 
 

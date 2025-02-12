@@ -57,7 +57,7 @@ where
 trait test_crate::X<Self, Self_Assoc>
 {
     parent_clause0 : [@TraitClause0]: core::marker::Sized<Self_Assoc>
-    fn method<'_0> = test_crate::X::method<'_0_0, Self, Self_Assoc>
+    fn method<'_0> = test_crate::X::method<'_0_0, Self, Self_Assoc, Self_Assoc>[Self]
 }
 
 trait test_crate::A<Self, Self_Clause0_Assoc>
@@ -70,7 +70,9 @@ trait test_crate::B<Self, Self_Clause0_Assoc>
     parent_clause0 : [@TraitClause0]: test_crate::X<Self, Self_Clause0_Assoc>
 }
 
-fn test_crate::X::method<'_0, Self, Self_Assoc>(@1: &'_0 (Self)) -> Self_Assoc
+fn test_crate::X::method<'_0, Self, Clause0_Assoc, Self_Assoc>(@1: &'_0 (Self)) -> Clause0_Assoc
+where
+    [@TraitClause0]: test_crate::X<Self, Clause0_Assoc>,
 
 fn test_crate::a<T, Clause1_Clause0_Assoc>(@1: T) -> Clause1_Clause0_Assoc
 where

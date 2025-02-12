@@ -28,7 +28,7 @@ where
 trait core::clone::Clone<Self>
 {
     parent_clause0 : [@TraitClause0]: core::marker::Sized<Self>
-    fn clone<'_0> = core::clone::Clone::clone<'_0_0, Self>
+    fn clone<'_0> = core::clone::Clone::clone<'_0_0, Self>[Self]
 }
 
 trait core::marker::Copy<Self>
@@ -204,6 +204,8 @@ fn test_crate::incr<'_0>(@1: &'_0 mut (core::cell::Cell<u32>))
 }
 
 fn core::clone::Clone::clone<'_0, Self>(@1: &'_0 (Self)) -> Self
+where
+    [@TraitClause0]: core::clone::Clone<Self>,
 
 
 
